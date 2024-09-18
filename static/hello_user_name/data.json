@@ -1,0 +1,218 @@
+[
+    {
+        "name": "W",
+        "type": "char",
+        "val": 87,
+        "l2l": false
+    },
+    {
+        "name": "h",
+        "type": "char",
+        "val": 104,
+        "l2l": false
+    },
+    {
+        "name": "a",
+        "type": "char",
+        "val": 97,
+        "l2l": false
+    },
+    {
+        "name": "t",
+        "type": "char",
+        "val": 116,
+        "l2l": false
+    },
+    {
+        "name": " ",
+        "type": "char",
+        "val": 32,
+        "l2l": false
+    },
+    {
+        "name": "i",
+        "type": "char",
+        "val": 105,
+        "l2l": false
+    },
+    {
+        "name": "s",
+        "type": "char",
+        "val": 115,
+        "l2l": false
+    },
+    {
+        "name": " ",
+        "type": "char",
+        "val": 32,
+        "l2l": false
+    },
+    {
+        "name": "y",
+        "type": "char",
+        "val": 121,
+        "l2l": false
+    },
+    {
+        "name": "o",
+        "type": "char",
+        "val": 111,
+        "l2l": false
+    },
+    {
+        "name": "u",
+        "type": "char",
+        "val": 117,
+        "l2l": false
+    },
+    {
+        "name": "r",
+        "type": "char",
+        "val": 114,
+        "l2l": false
+    },
+    {
+        "name": " ",
+        "type": "char",
+        "val": 32,
+        "l2l": false
+    },
+    {
+        "name": "n",
+        "type": "char",
+        "val": 110,
+        "l2l": false
+    },
+    {
+        "name": "a",
+        "type": "char",
+        "val": 97,
+        "l2l": false
+    },
+    {
+        "name": "m",
+        "type": "char",
+        "val": 109,
+        "l2l": false
+    },
+    {
+        "name": "e",
+        "type": "char",
+        "val": 101,
+        "l2l": false
+    },
+    {
+        "name": "?",
+        "type": "char",
+        "val": 63,
+        "l2l": false
+    },
+    {
+        "name": "\u0000",
+        "type": "char",
+        "val": 0,
+        "l2l": false
+    },
+    {
+        "name": "pointer_q",
+        "type": "num",
+        "val": "0",
+        "l2l": true
+    },
+    {
+        "name": "H",
+        "type": "char",
+        "val": 72,
+        "l2l": false
+    },
+    {
+        "name": "e",
+        "type": "char",
+        "val": 101,
+        "l2l": false
+    },
+    {
+        "name": "l",
+        "type": "char",
+        "val": 108,
+        "l2l": false
+    },
+    {
+        "name": "l",
+        "type": "char",
+        "val": 108,
+        "l2l": false
+    },
+    {
+        "name": "o",
+        "type": "char",
+        "val": 111,
+        "l2l": false
+    },
+    {
+        "name": ",",
+        "type": "char",
+        "val": 44,
+        "l2l": false
+    },
+    {
+        "name": " ",
+        "type": "char",
+        "val": 32,
+        "l2l": false
+    },
+    {
+        "name": "\u0000",
+        "type": "char",
+        "val": 0,
+        "l2l": false
+    },
+    {
+        "name": "pointer_h",
+        "type": "num",
+        "val": "20",
+        "l2l": true
+    },
+    {
+        "name": "mark",
+        "type": "char",
+        "val": 33,
+        "l2l": false
+    },
+    {
+        "name": "new_line",
+        "type": "char",
+        "val": 10,
+        "l2l": false
+    },
+    {
+        "name": "one",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    },
+    {
+        "name": "nul",
+        "type": "char",
+        "val": 0,
+        "l2l": false
+    },
+    {
+        "name": "in_d",
+        "type": "num",
+        "val": "0",
+        "l2l": false
+    },
+    {
+        "name": "out_d",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    },
+    {
+        "name": "buf_address",
+        "type": "num",
+        "val": "1998",
+        "l2l": false
+    }
+]

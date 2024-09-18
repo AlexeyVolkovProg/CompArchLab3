@@ -1,0 +1,56 @@
+[
+    {
+        "opcode": "di",
+        "arg": "None",
+        "address_type": false,
+        "pos_in_instr_mem": "0"
+    },
+    {
+        "opcode": "load",
+        "arg": "0",
+        "address_type": true,
+        "pos_in_instr_mem": "1"
+    },
+    {
+        "opcode": "push",
+        "arg": "None",
+        "address_type": false,
+        "pos_in_instr_mem": "2"
+    },
+    {
+        "opcode": "store",
+        "arg": "1",
+        "address_type": true,
+        "pos_in_instr_mem": "3"
+    },
+    {
+        "opcode": "load",
+        "arg": "1",
+        "address_type": false,
+        "pos_in_instr_mem": "4"
+    },
+    {
+        "opcode": "add",
+        "arg": "2",
+        "address_type": false,
+        "pos_in_instr_mem": "5"
+    },
+    {
+        "opcode": "store",
+        "arg": "1",
+        "address_type": false,
+        "pos_in_instr_mem": "6"
+    },
+    {
+        "opcode": "pop",
+        "arg": "None",
+        "address_type": false,
+        "pos_in_instr_mem": "7"
+    },
+    {
+        "opcode": "iret",
+        "arg": "None",
+        "address_type": false,
+        "pos_in_instr_mem": "8"
+    }
+]

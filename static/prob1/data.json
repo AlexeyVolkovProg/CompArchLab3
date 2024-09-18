@@ -1,0 +1,50 @@
+[
+    {
+        "name": "sum",
+        "type": "num",
+        "val": "0",
+        "l2l": false
+    },
+    {
+        "name": "left_boarder",
+        "type": "num",
+        "val": "0",
+        "l2l": false
+    },
+    {
+        "name": "right_boarder",
+        "type": "num",
+        "val": "1001",
+        "l2l": false
+    },
+    {
+        "name": "div1",
+        "type": "num",
+        "val": "3",
+        "l2l": false
+    },
+    {
+        "name": "div2",
+        "type": "num",
+        "val": "5",
+        "l2l": false
+    },
+    {
+        "name": "zero",
+        "type": "num",
+        "val": "0",
+        "l2l": false
+    },
+    {
+        "name": "one",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    },
+    {
+        "name": "out_d",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    }
+]

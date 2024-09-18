@@ -1,0 +1,26 @@
+[
+    {
+        "name": "buf_address",
+        "type": "num",
+        "val": "1998",
+        "l2l": false
+    },
+    {
+        "name": "nul",
+        "type": "char",
+        "val": 0,
+        "l2l": false
+    },
+    {
+        "name": "out_d",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    },
+    {
+        "name": "one",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    }
+]

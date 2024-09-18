@@ -1,0 +1,142 @@
+[
+    {
+        "opcode": "load",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "cmp",
+        "arg": "2",
+        "address_type": false
+    },
+    {
+        "opcode": "jz",
+        "arg": "25",
+        "address_type": false
+    },
+    {
+        "opcode": "cmp",
+        "arg": "3",
+        "address_type": false
+    },
+    {
+        "opcode": "jn",
+        "arg": "21",
+        "address_type": false
+    },
+    {
+        "opcode": "mod",
+        "arg": "3",
+        "address_type": false
+    },
+    {
+        "opcode": "cmp",
+        "arg": "5",
+        "address_type": false
+    },
+    {
+        "opcode": "jnz",
+        "arg": "12",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "add",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "store",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "jmp",
+        "arg": "21",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "cmp",
+        "arg": "4",
+        "address_type": false
+    },
+    {
+        "opcode": "jn",
+        "arg": "21",
+        "address_type": false
+    },
+    {
+        "opcode": "mod",
+        "arg": "4",
+        "address_type": false
+    },
+    {
+        "opcode": "cmp",
+        "arg": "5",
+        "address_type": false
+    },
+    {
+        "opcode": "jnz",
+        "arg": "21",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "add",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "store",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "add",
+        "arg": "6",
+        "address_type": false
+    },
+    {
+        "opcode": "store",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "jmp",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "store",
+        "arg": "7",
+        "address_type": true
+    },
+    {
+        "opcode": "hlt",
+        "arg": "None",
+        "address_type": false
+    }
+]

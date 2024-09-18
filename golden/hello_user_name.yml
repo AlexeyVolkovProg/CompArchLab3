@@ -1,0 +1,1018 @@
+in_source: |
+  .data:
+      question: string 'What is your name?\0'
+      pointer_q: num question
+      hello: string 'Hello, \0'
+      pointer_h: num hello
+      mark: char '!'
+      new_line: char '\n'
+      one: num 1
+      nul: char '\0'
+      in_d: num 0
+      out_d: num 1
+      buf_address: num 1998
+  .text:
+      di
+      print_q:
+          load [pointer_q]
+          cmp nul
+          jz next1
+          store [out_d]
+          load pointer_q
+          add one
+          store pointer_q
+          jmp print_q
+      next1:
+          load new_line
+          store [out_d]
+      input_name:
+          ei
+          di
+          cmp nul
+          jnz input_name
+      print_hello:
+          load [pointer_h]
+          cmp nul
+          jz print_name
+          store [out_d]
+          load pointer_h
+          add one
+          store pointer_h
+          jmp print_hello
+      print_name:
+          load [buf_address]
+          cmp nul
+          jz print_mark
+          store [out_d]
+          load buf_address
+          add one
+          store buf_address
+          jmp print_name
+      print_mark:
+          load mark
+          store [out_d]
+      exit:
+          hlt
+in_stdin:
+- [1, a]
+- [5, l]
+- [8, e]
+- [9, x]
+- [10, v]
+- [19, o]
+- [20, l]
+- [30, k]
+- [31, o]
+- [35, v]
+- [45, "\0"]
+out_code: |-
+  [
+      {
+          "opcode": "di",
+          "arg": "None",
+          "address_type": false
+      },
+      {
+          "opcode": "load",
+          "arg": "19",
+          "address_type": true
+      },
+      {
+          "opcode": "cmp",
+          "arg": "32",
+          "address_type": false
+      },
+      {
+          "opcode": "jz",
+          "arg": "9",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "34",
+          "address_type": true
+      },
+      {
+          "opcode": "load",
+          "arg": "19",
+          "address_type": false
+      },
+      {
+          "opcode": "add",
+          "arg": "31",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "19",
+          "address_type": false
+      },
+      {
+          "opcode": "jmp",
+          "arg": "1",
+          "address_type": false
+      },
+      {
+          "opcode": "load",
+          "arg": "30",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "34",
+          "address_type": true
+      },
+      {
+          "opcode": "ei",
+          "arg": "None",
+          "address_type": false
+      },
+      {
+          "opcode": "di",
+          "arg": "None",
+          "address_type": false
+      },
+      {
+          "opcode": "cmp",
+          "arg": "32",
+          "address_type": false
+      },
+      {
+          "opcode": "jnz",
+          "arg": "11",
+          "address_type": false
+      },
+      {
+          "opcode": "load",
+          "arg": "28",
+          "address_type": true
+      },
+      {
+          "opcode": "cmp",
+          "arg": "32",
+          "address_type": false
+      },
+      {
+          "opcode": "jz",
+          "arg": "23",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "34",
+          "address_type": true
+      },
+      {
+          "opcode": "load",
+          "arg": "28",
+          "address_type": false
+      },
+      {
+          "opcode": "add",
+          "arg": "31",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "28",
+          "address_type": false
+      },
+      {
+          "opcode": "jmp",
+          "arg": "15",
+          "address_type": false
+      },
+      {
+          "opcode": "load",
+          "arg": "35",
+          "address_type": true
+      },
+      {
+          "opcode": "cmp",
+          "arg": "32",
+          "address_type": false
+      },
+      {
+          "opcode": "jz",
+          "arg": "31",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "34",
+          "address_type": true
+      },
+      {
+          "opcode": "load",
+          "arg": "35",
+          "address_type": false
+      },
+      {
+          "opcode": "add",
+          "arg": "31",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "35",
+          "address_type": false
+      },
+      {
+          "opcode": "jmp",
+          "arg": "23",
+          "address_type": false
+      },
+      {
+          "opcode": "load",
+          "arg": "29",
+          "address_type": false
+      },
+      {
+          "opcode": "store",
+          "arg": "34",
+          "address_type": true
+      },
+      {
+          "opcode": "hlt",
+          "arg": "None",
+          "address_type": false
+      }
+  ]
+out_data: |-
+  [
+      {
+          "name": "W",
+          "type": "char",
+          "val": 87,
+          "l2l": false
+      },
+      {
+          "name": "h",
+          "type": "char",
+          "val": 104,
+          "l2l": false
+      },
+      {
+          "name": "a",
+          "type": "char",
+          "val": 97,
+          "l2l": false
+      },
+      {
+          "name": "t",
+          "type": "char",
+          "val": 116,
+          "l2l": false
+      },
+      {
+          "name": " ",
+          "type": "char",
+          "val": 32,
+          "l2l": false
+      },
+      {
+          "name": "i",
+          "type": "char",
+          "val": 105,
+          "l2l": false
+      },
+      {
+          "name": "s",
+          "type": "char",
+          "val": 115,
+          "l2l": false
+      },
+      {
+          "name": " ",
+          "type": "char",
+          "val": 32,
+          "l2l": false
+      },
+      {
+          "name": "y",
+          "type": "char",
+          "val": 121,
+          "l2l": false
+      },
+      {
+          "name": "o",
+          "type": "char",
+          "val": 111,
+          "l2l": false
+      },
+      {
+          "name": "u",
+          "type": "char",
+          "val": 117,
+          "l2l": false
+      },
+      {
+          "name": "r",
+          "type": "char",
+          "val": 114,
+          "l2l": false
+      },
+      {
+          "name": " ",
+          "type": "char",
+          "val": 32,
+          "l2l": false
+      },
+      {
+          "name": "n",
+          "type": "char",
+          "val": 110,
+          "l2l": false
+      },
+      {
+          "name": "a",
+          "type": "char",
+          "val": 97,
+          "l2l": false
+      },
+      {
+          "name": "m",
+          "type": "char",
+          "val": 109,
+          "l2l": false
+      },
+      {
+          "name": "e",
+          "type": "char",
+          "val": 101,
+          "l2l": false
+      },
+      {
+          "name": "?",
+          "type": "char",
+          "val": 63,
+          "l2l": false
+      },
+      {
+          "name": "\u0000",
+          "type": "char",
+          "val": 0,
+          "l2l": false
+      },
+      {
+          "name": "pointer_q",
+          "type": "num",
+          "val": "0",
+          "l2l": true
+      },
+      {
+          "name": "H",
+          "type": "char",
+          "val": 72,
+          "l2l": false
+      },
+      {
+          "name": "e",
+          "type": "char",
+          "val": 101,
+          "l2l": false
+      },
+      {
+          "name": "l",
+          "type": "char",
+          "val": 108,
+          "l2l": false
+      },
+      {
+          "name": "l",
+          "type": "char",
+          "val": 108,
+          "l2l": false
+      },
+      {
+          "name": "o",
+          "type": "char",
+          "val": 111,
+          "l2l": false
+      },
+      {
+          "name": ",",
+          "type": "char",
+          "val": 44,
+          "l2l": false
+      },
+      {
+          "name": " ",
+          "type": "char",
+          "val": 32,
+          "l2l": false
+      },
+      {
+          "name": "\u0000",
+          "type": "char",
+          "val": 0,
+          "l2l": false
+      },
+      {
+          "name": "pointer_h",
+          "type": "num",
+          "val": "20",
+          "l2l": true
+      },
+      {
+          "name": "mark",
+          "type": "char",
+          "val": 33,
+          "l2l": false
+      },
+      {
+          "name": "new_line",
+          "type": "char",
+          "val": 10,
+          "l2l": false
+      },
+      {
+          "name": "one",
+          "type": "num",
+          "val": "1",
+          "l2l": false
+      },
+      {
+          "name": "nul",
+          "type": "char",
+          "val": 0,
+          "l2l": false
+      },
+      {
+          "name": "in_d",
+          "type": "num",
+          "val": "0",
+          "l2l": false
+      },
+      {
+          "name": "out_d",
+          "type": "num",
+          "val": "1",
+          "l2l": false
+      },
+      {
+          "name": "buf_address",
+          "type": "num",
+          "val": "1998",
+          "l2l": false
+      }
+  ]
+out_stdout: |
+  ============================================================
+  W h a t   i s   y o u r   n a m e ? 
+   H e l l o ,   a l e x v o l k o v !
+out_log: |
+  DEBUG    root:machine.py:577 tick:0 pc:9 ar:0 acc:0 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:4 pc:10 ar:0 acc:0 ei:False interrupt:False 	Opcode:load Arg:25 Mem[arg]:{'name': 'pointer_q', 'type': <DataType.num: 'num'>, 'val': 6, 'l2l': True}
+  DEBUG    root:machine.py:577 tick:9 pc:11 ar:6 acc:87 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:14 pc:12 ar:38 acc:87 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:18 pc:13 ar:38 acc:87 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: W
+  DEBUG    root:machine.py:577 tick:23 pc:14 ar:1 acc:87 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'pointer_q', 'type': <DataType.num: 'num'>, 'val': 6, 'l2l': True}
+  DEBUG    root:machine.py:577 tick:27 pc:15 ar:25 acc:6 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:32 pc:16 ar:37 acc:7 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'pointer_q', 'type': <DataType.num: 'num'>, 'val': 6, 'l2l': True}
+  DEBUG    root:machine.py:577 tick:36 pc:17 ar:25 acc:7 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:39 pc:10 ar:25 acc:7 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '7'}
+  DEBUG    root:machine.py:577 tick:44 pc:11 ar:7 acc:104 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:49 pc:12 ar:38 acc:104 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:53 pc:13 ar:38 acc:104 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: h
+  DEBUG    root:machine.py:577 tick:58 pc:14 ar:1 acc:104 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '7'}
+  DEBUG    root:machine.py:577 tick:62 pc:15 ar:25 acc:7 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:67 pc:16 ar:37 acc:8 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '7'}
+  DEBUG    root:machine.py:577 tick:71 pc:17 ar:25 acc:8 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:74 pc:10 ar:25 acc:8 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '8'}
+  DEBUG    root:machine.py:577 tick:79 pc:11 ar:8 acc:97 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:84 pc:12 ar:38 acc:97 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:88 pc:13 ar:38 acc:97 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: a
+  DEBUG    root:machine.py:577 tick:93 pc:14 ar:1 acc:97 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '8'}
+  DEBUG    root:machine.py:577 tick:97 pc:15 ar:25 acc:8 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:102 pc:16 ar:37 acc:9 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '8'}
+  DEBUG    root:machine.py:577 tick:106 pc:17 ar:25 acc:9 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:109 pc:10 ar:25 acc:9 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '9'}
+  DEBUG    root:machine.py:577 tick:114 pc:11 ar:9 acc:116 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:119 pc:12 ar:38 acc:116 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:123 pc:13 ar:38 acc:116 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: t
+  DEBUG    root:machine.py:577 tick:128 pc:14 ar:1 acc:116 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '9'}
+  DEBUG    root:machine.py:577 tick:132 pc:15 ar:25 acc:9 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:137 pc:16 ar:37 acc:10 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '9'}
+  DEBUG    root:machine.py:577 tick:141 pc:17 ar:25 acc:10 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:144 pc:10 ar:25 acc:10 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '10'}
+  DEBUG    root:machine.py:577 tick:149 pc:11 ar:10 acc:32 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:154 pc:12 ar:38 acc:32 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:158 pc:13 ar:38 acc:32 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT:  
+  DEBUG    root:machine.py:577 tick:163 pc:14 ar:1 acc:32 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '10'}
+  DEBUG    root:machine.py:577 tick:167 pc:15 ar:25 acc:10 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:172 pc:16 ar:37 acc:11 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '10'}
+  DEBUG    root:machine.py:577 tick:176 pc:17 ar:25 acc:11 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:179 pc:10 ar:25 acc:11 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '11'}
+  DEBUG    root:machine.py:577 tick:184 pc:11 ar:11 acc:105 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:189 pc:12 ar:38 acc:105 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:193 pc:13 ar:38 acc:105 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: i
+  DEBUG    root:machine.py:577 tick:198 pc:14 ar:1 acc:105 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '11'}
+  DEBUG    root:machine.py:577 tick:202 pc:15 ar:25 acc:11 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:207 pc:16 ar:37 acc:12 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '11'}
+  DEBUG    root:machine.py:577 tick:211 pc:17 ar:25 acc:12 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:214 pc:10 ar:25 acc:12 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '12'}
+  DEBUG    root:machine.py:577 tick:219 pc:11 ar:12 acc:115 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:224 pc:12 ar:38 acc:115 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:228 pc:13 ar:38 acc:115 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: s
+  DEBUG    root:machine.py:577 tick:233 pc:14 ar:1 acc:115 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '12'}
+  DEBUG    root:machine.py:577 tick:237 pc:15 ar:25 acc:12 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:242 pc:16 ar:37 acc:13 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '12'}
+  DEBUG    root:machine.py:577 tick:246 pc:17 ar:25 acc:13 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:249 pc:10 ar:25 acc:13 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '13'}
+  DEBUG    root:machine.py:577 tick:254 pc:11 ar:13 acc:32 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:259 pc:12 ar:38 acc:32 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:263 pc:13 ar:38 acc:32 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT:  
+  DEBUG    root:machine.py:577 tick:268 pc:14 ar:1 acc:32 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '13'}
+  DEBUG    root:machine.py:577 tick:272 pc:15 ar:25 acc:13 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:277 pc:16 ar:37 acc:14 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '13'}
+  DEBUG    root:machine.py:577 tick:281 pc:17 ar:25 acc:14 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:284 pc:10 ar:25 acc:14 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '14'}
+  DEBUG    root:machine.py:577 tick:289 pc:11 ar:14 acc:121 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:294 pc:12 ar:38 acc:121 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:298 pc:13 ar:38 acc:121 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: y
+  DEBUG    root:machine.py:577 tick:303 pc:14 ar:1 acc:121 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '14'}
+  DEBUG    root:machine.py:577 tick:307 pc:15 ar:25 acc:14 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:312 pc:16 ar:37 acc:15 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '14'}
+  DEBUG    root:machine.py:577 tick:316 pc:17 ar:25 acc:15 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:319 pc:10 ar:25 acc:15 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '15'}
+  DEBUG    root:machine.py:577 tick:324 pc:11 ar:15 acc:111 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:329 pc:12 ar:38 acc:111 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:333 pc:13 ar:38 acc:111 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: o
+  DEBUG    root:machine.py:577 tick:338 pc:14 ar:1 acc:111 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '15'}
+  DEBUG    root:machine.py:577 tick:342 pc:15 ar:25 acc:15 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:347 pc:16 ar:37 acc:16 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '15'}
+  DEBUG    root:machine.py:577 tick:351 pc:17 ar:25 acc:16 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:354 pc:10 ar:25 acc:16 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '16'}
+  DEBUG    root:machine.py:577 tick:359 pc:11 ar:16 acc:117 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:364 pc:12 ar:38 acc:117 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:368 pc:13 ar:38 acc:117 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: u
+  DEBUG    root:machine.py:577 tick:373 pc:14 ar:1 acc:117 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '16'}
+  DEBUG    root:machine.py:577 tick:377 pc:15 ar:25 acc:16 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:382 pc:16 ar:37 acc:17 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '16'}
+  DEBUG    root:machine.py:577 tick:386 pc:17 ar:25 acc:17 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:389 pc:10 ar:25 acc:17 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '17'}
+  DEBUG    root:machine.py:577 tick:394 pc:11 ar:17 acc:114 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:399 pc:12 ar:38 acc:114 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:403 pc:13 ar:38 acc:114 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: r
+  DEBUG    root:machine.py:577 tick:408 pc:14 ar:1 acc:114 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '17'}
+  DEBUG    root:machine.py:577 tick:412 pc:15 ar:25 acc:17 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:417 pc:16 ar:37 acc:18 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '17'}
+  DEBUG    root:machine.py:577 tick:421 pc:17 ar:25 acc:18 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:424 pc:10 ar:25 acc:18 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '18'}
+  DEBUG    root:machine.py:577 tick:429 pc:11 ar:18 acc:32 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:434 pc:12 ar:38 acc:32 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:438 pc:13 ar:38 acc:32 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT:  
+  DEBUG    root:machine.py:577 tick:443 pc:14 ar:1 acc:32 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '18'}
+  DEBUG    root:machine.py:577 tick:447 pc:15 ar:25 acc:18 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:452 pc:16 ar:37 acc:19 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '18'}
+  DEBUG    root:machine.py:577 tick:456 pc:17 ar:25 acc:19 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:459 pc:10 ar:25 acc:19 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '19'}
+  DEBUG    root:machine.py:577 tick:464 pc:11 ar:19 acc:110 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:469 pc:12 ar:38 acc:110 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:473 pc:13 ar:38 acc:110 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: n
+  DEBUG    root:machine.py:577 tick:478 pc:14 ar:1 acc:110 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '19'}
+  DEBUG    root:machine.py:577 tick:482 pc:15 ar:25 acc:19 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:487 pc:16 ar:37 acc:20 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '19'}
+  DEBUG    root:machine.py:577 tick:491 pc:17 ar:25 acc:20 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:494 pc:10 ar:25 acc:20 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '20'}
+  DEBUG    root:machine.py:577 tick:499 pc:11 ar:20 acc:97 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:504 pc:12 ar:38 acc:97 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:508 pc:13 ar:38 acc:97 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: a
+  DEBUG    root:machine.py:577 tick:513 pc:14 ar:1 acc:97 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '20'}
+  DEBUG    root:machine.py:577 tick:517 pc:15 ar:25 acc:20 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:522 pc:16 ar:37 acc:21 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '20'}
+  DEBUG    root:machine.py:577 tick:526 pc:17 ar:25 acc:21 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:529 pc:10 ar:25 acc:21 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:577 tick:534 pc:11 ar:21 acc:109 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:539 pc:12 ar:38 acc:109 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:543 pc:13 ar:38 acc:109 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: m
+  DEBUG    root:machine.py:577 tick:548 pc:14 ar:1 acc:109 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:577 tick:552 pc:15 ar:25 acc:21 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:557 pc:16 ar:37 acc:22 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:577 tick:561 pc:17 ar:25 acc:22 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:564 pc:10 ar:25 acc:22 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '22'}
+  DEBUG    root:machine.py:577 tick:569 pc:11 ar:22 acc:101 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:574 pc:12 ar:38 acc:101 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:578 pc:13 ar:38 acc:101 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: e
+  DEBUG    root:machine.py:577 tick:583 pc:14 ar:1 acc:101 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '22'}
+  DEBUG    root:machine.py:577 tick:587 pc:15 ar:25 acc:22 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:592 pc:16 ar:37 acc:23 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '22'}
+  DEBUG    root:machine.py:577 tick:596 pc:17 ar:25 acc:23 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:599 pc:10 ar:25 acc:23 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '23'}
+  DEBUG    root:machine.py:577 tick:604 pc:11 ar:23 acc:63 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:609 pc:12 ar:38 acc:63 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:613 pc:13 ar:38 acc:63 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: ?
+  DEBUG    root:machine.py:577 tick:618 pc:14 ar:1 acc:63 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '23'}
+  DEBUG    root:machine.py:577 tick:622 pc:15 ar:25 acc:23 ei:False interrupt:True 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:627 pc:16 ar:37 acc:24 ei:False interrupt:True 	Opcode:store Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '23'}
+  DEBUG    root:machine.py:577 tick:631 pc:17 ar:25 acc:24 ei:False interrupt:True 	Opcode:jmp Arg:10 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:634 pc:10 ar:25 acc:24 ei:False interrupt:True 	Opcode:load Arg:25 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '24'}
+  DEBUG    root:machine.py:577 tick:639 pc:11 ar:24 acc:0 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:644 pc:12 ar:38 acc:0 ei:False interrupt:True 	Opcode:jz Arg:18 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:648 pc:18 ar:38 acc:0 ei:False interrupt:True 	Opcode:load Arg:36 Mem[arg]:{'name': 'new_line', 'type': <DataType.char: 'char'>, 'val': 10, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:652 pc:19 ar:36 acc:10 ei:False interrupt:True 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: 
+
+  DEBUG    root:machine.py:577 tick:657 pc:20 ar:1 acc:10 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:667 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:671 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: a
+  DEBUG    root:machine.py:577 tick:676 pc:2 ar:0 acc:97 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:679 pc:3 ar:2046 acc:97 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'buf_address', 'type': <DataType.num: 'num'>, 'val': '1998', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:684 pc:4 ar:1998 acc:97 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'buf_address', 'type': <DataType.num: 'num'>, 'val': '1998', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:688 pc:5 ar:4 acc:1998 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:693 pc:6 ar:5 acc:1999 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'buf_address', 'type': <DataType.num: 'num'>, 'val': '1998', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:697 pc:7 ar:4 acc:1999 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:701 pc:8 ar:2046 acc:97 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:706 pc:21 ar:2047 acc:97 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:710 pc:22 ar:2047 acc:97 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:715 pc:23 ar:38 acc:97 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:719 pc:20 ar:38 acc:97 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:729 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:733 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: l
+  DEBUG    root:machine.py:577 tick:738 pc:2 ar:0 acc:108 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:741 pc:3 ar:2046 acc:108 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '1999'}
+  DEBUG    root:machine.py:577 tick:746 pc:4 ar:1999 acc:108 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '1999'}
+  DEBUG    root:machine.py:577 tick:750 pc:5 ar:4 acc:1999 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:755 pc:6 ar:5 acc:2000 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '1999'}
+  DEBUG    root:machine.py:577 tick:759 pc:7 ar:4 acc:2000 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:763 pc:8 ar:2046 acc:108 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:768 pc:21 ar:2047 acc:108 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:772 pc:22 ar:2047 acc:108 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:777 pc:23 ar:38 acc:108 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:781 pc:20 ar:38 acc:108 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:791 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:795 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: e
+  DEBUG    root:machine.py:577 tick:800 pc:2 ar:0 acc:101 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:803 pc:3 ar:2046 acc:101 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2000'}
+  DEBUG    root:machine.py:577 tick:808 pc:4 ar:2000 acc:101 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2000'}
+  DEBUG    root:machine.py:577 tick:812 pc:5 ar:4 acc:2000 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:817 pc:6 ar:5 acc:2001 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2000'}
+  DEBUG    root:machine.py:577 tick:821 pc:7 ar:4 acc:2001 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:825 pc:8 ar:2046 acc:101 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:830 pc:21 ar:2047 acc:101 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:834 pc:22 ar:2047 acc:101 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:839 pc:23 ar:38 acc:101 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:843 pc:20 ar:38 acc:101 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:853 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:857 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: x
+  DEBUG    root:machine.py:577 tick:862 pc:2 ar:0 acc:120 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:865 pc:3 ar:2046 acc:120 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2001'}
+  DEBUG    root:machine.py:577 tick:870 pc:4 ar:2001 acc:120 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2001'}
+  DEBUG    root:machine.py:577 tick:874 pc:5 ar:4 acc:2001 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:879 pc:6 ar:5 acc:2002 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2001'}
+  DEBUG    root:machine.py:577 tick:883 pc:7 ar:4 acc:2002 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:887 pc:8 ar:2046 acc:120 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:892 pc:21 ar:2047 acc:120 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:896 pc:22 ar:2047 acc:120 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:901 pc:23 ar:38 acc:120 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:905 pc:20 ar:38 acc:120 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:915 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:919 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: v
+  DEBUG    root:machine.py:577 tick:924 pc:2 ar:0 acc:118 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:927 pc:3 ar:2046 acc:118 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2002'}
+  DEBUG    root:machine.py:577 tick:932 pc:4 ar:2002 acc:118 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2002'}
+  DEBUG    root:machine.py:577 tick:936 pc:5 ar:4 acc:2002 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:941 pc:6 ar:5 acc:2003 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2002'}
+  DEBUG    root:machine.py:577 tick:945 pc:7 ar:4 acc:2003 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:949 pc:8 ar:2046 acc:118 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:954 pc:21 ar:2047 acc:118 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:958 pc:22 ar:2047 acc:118 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:963 pc:23 ar:38 acc:118 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:967 pc:20 ar:38 acc:118 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:977 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:981 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: o
+  DEBUG    root:machine.py:577 tick:986 pc:2 ar:0 acc:111 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:989 pc:3 ar:2046 acc:111 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2003'}
+  DEBUG    root:machine.py:577 tick:994 pc:4 ar:2003 acc:111 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2003'}
+  DEBUG    root:machine.py:577 tick:998 pc:5 ar:4 acc:2003 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1003 pc:6 ar:5 acc:2004 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2003'}
+  DEBUG    root:machine.py:577 tick:1007 pc:7 ar:4 acc:2004 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1011 pc:8 ar:2046 acc:111 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:1016 pc:21 ar:2047 acc:111 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1020 pc:22 ar:2047 acc:111 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1025 pc:23 ar:38 acc:111 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1029 pc:20 ar:38 acc:111 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:1039 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1043 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: l
+  DEBUG    root:machine.py:577 tick:1048 pc:2 ar:0 acc:108 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1051 pc:3 ar:2046 acc:108 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2004'}
+  DEBUG    root:machine.py:577 tick:1056 pc:4 ar:2004 acc:108 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2004'}
+  DEBUG    root:machine.py:577 tick:1060 pc:5 ar:4 acc:2004 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1065 pc:6 ar:5 acc:2005 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2004'}
+  DEBUG    root:machine.py:577 tick:1069 pc:7 ar:4 acc:2005 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1073 pc:8 ar:2046 acc:108 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:1078 pc:21 ar:2047 acc:108 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1082 pc:22 ar:2047 acc:108 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1087 pc:23 ar:38 acc:108 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1091 pc:20 ar:38 acc:108 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:1101 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1105 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: k
+  DEBUG    root:machine.py:577 tick:1110 pc:2 ar:0 acc:107 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1113 pc:3 ar:2046 acc:107 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2005'}
+  DEBUG    root:machine.py:577 tick:1118 pc:4 ar:2005 acc:107 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2005'}
+  DEBUG    root:machine.py:577 tick:1122 pc:5 ar:4 acc:2005 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1127 pc:6 ar:5 acc:2006 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2005'}
+  DEBUG    root:machine.py:577 tick:1131 pc:7 ar:4 acc:2006 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1135 pc:8 ar:2046 acc:107 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:1140 pc:21 ar:2047 acc:107 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1144 pc:22 ar:2047 acc:107 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1149 pc:23 ar:38 acc:107 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1153 pc:20 ar:38 acc:107 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:1163 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1167 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: o
+  DEBUG    root:machine.py:577 tick:1172 pc:2 ar:0 acc:111 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1175 pc:3 ar:2046 acc:111 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2006'}
+  DEBUG    root:machine.py:577 tick:1180 pc:4 ar:2006 acc:111 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2006'}
+  DEBUG    root:machine.py:577 tick:1184 pc:5 ar:4 acc:2006 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1189 pc:6 ar:5 acc:2007 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2006'}
+  DEBUG    root:machine.py:577 tick:1193 pc:7 ar:4 acc:2007 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1197 pc:8 ar:2046 acc:111 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:1202 pc:21 ar:2047 acc:111 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1206 pc:22 ar:2047 acc:111 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1211 pc:23 ar:38 acc:111 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1215 pc:20 ar:38 acc:111 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:1225 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1229 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: v
+  DEBUG    root:machine.py:577 tick:1234 pc:2 ar:0 acc:118 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1237 pc:3 ar:2046 acc:118 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2007'}
+  DEBUG    root:machine.py:577 tick:1242 pc:4 ar:2007 acc:118 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2007'}
+  DEBUG    root:machine.py:577 tick:1246 pc:5 ar:4 acc:2007 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1251 pc:6 ar:5 acc:2008 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2007'}
+  DEBUG    root:machine.py:577 tick:1255 pc:7 ar:4 acc:2008 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1259 pc:8 ar:2046 acc:118 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:1264 pc:21 ar:2047 acc:118 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1268 pc:22 ar:2047 acc:118 ei:False interrupt:True 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1273 pc:23 ar:38 acc:118 ei:False interrupt:True 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1277 pc:20 ar:38 acc:118 ei:False interrupt:True 	Opcode:ei Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:494 -----------Interrupt-Started-----------
+  DEBUG    root:machine.py:499 EI switched to False
+  DEBUG    root:machine.py:527 save_pc: ar:2047 mem[ar]:{'name': 'saved_pc', 'type': <DataType.num: 'num'>, 'val': '21'}
+  DEBUG    root:machine.py:542 find_isr: ar:2 mem[ar]:{'name': 'interrupt vector', 'type': <DataType.num: 'num'>, 'val': '0'}
+  DEBUG    root:machine.py:543 -----------Execute-ISR-----------
+  DEBUG    root:machine.py:577 tick:1287 pc:0 ar:2 acc:0 ei:False interrupt:True 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1291 pc:1 ar:2 acc:0 ei:False interrupt:True 	Opcode:load Arg:3 Mem[arg]:{'name': 'in_d', 'type': <DataType.num: 'num'>, 'val': '0', 'l2l': False}
+  DEBUG    root:machine.py:63 CHAR_IN: null
+  DEBUG    root:machine.py:577 tick:1296 pc:2 ar:0 acc:0 ei:False interrupt:True 	Opcode:push Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1299 pc:3 ar:2046 acc:0 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2008'}
+  DEBUG    root:machine.py:577 tick:1304 pc:4 ar:2008 acc:0 ei:False interrupt:True 	Opcode:load Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2008'}
+  DEBUG    root:machine.py:577 tick:1308 pc:5 ar:4 acc:2008 ei:False interrupt:True 	Opcode:add Arg:5 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1313 pc:6 ar:5 acc:2009 ei:False interrupt:True 	Opcode:store Arg:4 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2008'}
+  DEBUG    root:machine.py:577 tick:1317 pc:7 ar:4 acc:2009 ei:False interrupt:True 	Opcode:pop Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1321 pc:8 ar:2046 acc:0 ei:False interrupt:True 	Opcode:iret Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:430 -----------Interrupt-Ended-----------
+  DEBUG    root:machine.py:577 tick:1326 pc:21 ar:2047 acc:0 ei:True interrupt:False 	Opcode:di Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1330 pc:22 ar:2047 acc:0 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1335 pc:23 ar:38 acc:0 ei:False interrupt:False 	Opcode:jnz Arg:20 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1339 pc:24 ar:38 acc:0 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'pointer_h', 'type': <DataType.num: 'num'>, 'val': 26, 'l2l': True}
+  DEBUG    root:machine.py:577 tick:1344 pc:25 ar:26 acc:72 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1349 pc:26 ar:38 acc:72 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1353 pc:27 ar:38 acc:72 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: H
+  DEBUG    root:machine.py:577 tick:1358 pc:28 ar:1 acc:72 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'pointer_h', 'type': <DataType.num: 'num'>, 'val': 26, 'l2l': True}
+  DEBUG    root:machine.py:577 tick:1362 pc:29 ar:34 acc:26 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1367 pc:30 ar:37 acc:27 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'pointer_h', 'type': <DataType.num: 'num'>, 'val': 26, 'l2l': True}
+  DEBUG    root:machine.py:577 tick:1371 pc:31 ar:34 acc:27 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1374 pc:24 ar:34 acc:27 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '27'}
+  DEBUG    root:machine.py:577 tick:1379 pc:25 ar:27 acc:101 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1384 pc:26 ar:38 acc:101 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1388 pc:27 ar:38 acc:101 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: e
+  DEBUG    root:machine.py:577 tick:1393 pc:28 ar:1 acc:101 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '27'}
+  DEBUG    root:machine.py:577 tick:1397 pc:29 ar:34 acc:27 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1402 pc:30 ar:37 acc:28 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '27'}
+  DEBUG    root:machine.py:577 tick:1406 pc:31 ar:34 acc:28 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1409 pc:24 ar:34 acc:28 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '28'}
+  DEBUG    root:machine.py:577 tick:1414 pc:25 ar:28 acc:108 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1419 pc:26 ar:38 acc:108 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1423 pc:27 ar:38 acc:108 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: l
+  DEBUG    root:machine.py:577 tick:1428 pc:28 ar:1 acc:108 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '28'}
+  DEBUG    root:machine.py:577 tick:1432 pc:29 ar:34 acc:28 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1437 pc:30 ar:37 acc:29 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '28'}
+  DEBUG    root:machine.py:577 tick:1441 pc:31 ar:34 acc:29 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1444 pc:24 ar:34 acc:29 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '29'}
+  DEBUG    root:machine.py:577 tick:1449 pc:25 ar:29 acc:108 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1454 pc:26 ar:38 acc:108 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1458 pc:27 ar:38 acc:108 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: l
+  DEBUG    root:machine.py:577 tick:1463 pc:28 ar:1 acc:108 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '29'}
+  DEBUG    root:machine.py:577 tick:1467 pc:29 ar:34 acc:29 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1472 pc:30 ar:37 acc:30 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '29'}
+  DEBUG    root:machine.py:577 tick:1476 pc:31 ar:34 acc:30 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1479 pc:24 ar:34 acc:30 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '30'}
+  DEBUG    root:machine.py:577 tick:1484 pc:25 ar:30 acc:111 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1489 pc:26 ar:38 acc:111 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1493 pc:27 ar:38 acc:111 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: o
+  DEBUG    root:machine.py:577 tick:1498 pc:28 ar:1 acc:111 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '30'}
+  DEBUG    root:machine.py:577 tick:1502 pc:29 ar:34 acc:30 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1507 pc:30 ar:37 acc:31 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '30'}
+  DEBUG    root:machine.py:577 tick:1511 pc:31 ar:34 acc:31 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1514 pc:24 ar:34 acc:31 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '31'}
+  DEBUG    root:machine.py:577 tick:1519 pc:25 ar:31 acc:44 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1524 pc:26 ar:38 acc:44 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1528 pc:27 ar:38 acc:44 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: ,
+  DEBUG    root:machine.py:577 tick:1533 pc:28 ar:1 acc:44 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '31'}
+  DEBUG    root:machine.py:577 tick:1537 pc:29 ar:34 acc:31 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1542 pc:30 ar:37 acc:32 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '31'}
+  DEBUG    root:machine.py:577 tick:1546 pc:31 ar:34 acc:32 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1549 pc:24 ar:34 acc:32 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '32'}
+  DEBUG    root:machine.py:577 tick:1554 pc:25 ar:32 acc:32 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1559 pc:26 ar:38 acc:32 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1563 pc:27 ar:38 acc:32 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT:  
+  DEBUG    root:machine.py:577 tick:1568 pc:28 ar:1 acc:32 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '32'}
+  DEBUG    root:machine.py:577 tick:1572 pc:29 ar:34 acc:32 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1577 pc:30 ar:37 acc:33 ei:False interrupt:False 	Opcode:store Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '32'}
+  DEBUG    root:machine.py:577 tick:1581 pc:31 ar:34 acc:33 ei:False interrupt:False 	Opcode:jmp Arg:24 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1584 pc:24 ar:34 acc:33 ei:False interrupt:False 	Opcode:load Arg:34 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '33'}
+  DEBUG    root:machine.py:577 tick:1589 pc:25 ar:33 acc:0 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1594 pc:26 ar:38 acc:0 ei:False interrupt:False 	Opcode:jz Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1598 pc:32 ar:38 acc:0 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'buf_address', 'type': <DataType.num: 'num'>, 'val': '1998', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1603 pc:33 ar:1998 acc:97 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1608 pc:34 ar:38 acc:97 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1612 pc:35 ar:38 acc:97 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: a
+  DEBUG    root:machine.py:577 tick:1617 pc:36 ar:1 acc:97 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'buf_address', 'type': <DataType.num: 'num'>, 'val': '1998', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1621 pc:37 ar:41 acc:1998 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1626 pc:38 ar:37 acc:1999 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'buf_address', 'type': <DataType.num: 'num'>, 'val': '1998', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1630 pc:39 ar:41 acc:1999 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1633 pc:32 ar:41 acc:1999 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '1999'}
+  DEBUG    root:machine.py:577 tick:1638 pc:33 ar:1999 acc:108 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1643 pc:34 ar:38 acc:108 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1647 pc:35 ar:38 acc:108 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: l
+  DEBUG    root:machine.py:577 tick:1652 pc:36 ar:1 acc:108 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '1999'}
+  DEBUG    root:machine.py:577 tick:1656 pc:37 ar:41 acc:1999 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1661 pc:38 ar:37 acc:2000 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '1999'}
+  DEBUG    root:machine.py:577 tick:1665 pc:39 ar:41 acc:2000 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1668 pc:32 ar:41 acc:2000 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2000'}
+  DEBUG    root:machine.py:577 tick:1673 pc:33 ar:2000 acc:101 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1678 pc:34 ar:38 acc:101 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1682 pc:35 ar:38 acc:101 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: e
+  DEBUG    root:machine.py:577 tick:1687 pc:36 ar:1 acc:101 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2000'}
+  DEBUG    root:machine.py:577 tick:1691 pc:37 ar:41 acc:2000 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1696 pc:38 ar:37 acc:2001 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2000'}
+  DEBUG    root:machine.py:577 tick:1700 pc:39 ar:41 acc:2001 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1703 pc:32 ar:41 acc:2001 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2001'}
+  DEBUG    root:machine.py:577 tick:1708 pc:33 ar:2001 acc:120 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1713 pc:34 ar:38 acc:120 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1717 pc:35 ar:38 acc:120 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: x
+  DEBUG    root:machine.py:577 tick:1722 pc:36 ar:1 acc:120 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2001'}
+  DEBUG    root:machine.py:577 tick:1726 pc:37 ar:41 acc:2001 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1731 pc:38 ar:37 acc:2002 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2001'}
+  DEBUG    root:machine.py:577 tick:1735 pc:39 ar:41 acc:2002 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1738 pc:32 ar:41 acc:2002 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2002'}
+  DEBUG    root:machine.py:577 tick:1743 pc:33 ar:2002 acc:118 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1748 pc:34 ar:38 acc:118 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1752 pc:35 ar:38 acc:118 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: v
+  DEBUG    root:machine.py:577 tick:1757 pc:36 ar:1 acc:118 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2002'}
+  DEBUG    root:machine.py:577 tick:1761 pc:37 ar:41 acc:2002 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1766 pc:38 ar:37 acc:2003 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2002'}
+  DEBUG    root:machine.py:577 tick:1770 pc:39 ar:41 acc:2003 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1773 pc:32 ar:41 acc:2003 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2003'}
+  DEBUG    root:machine.py:577 tick:1778 pc:33 ar:2003 acc:111 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1783 pc:34 ar:38 acc:111 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1787 pc:35 ar:38 acc:111 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: o
+  DEBUG    root:machine.py:577 tick:1792 pc:36 ar:1 acc:111 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2003'}
+  DEBUG    root:machine.py:577 tick:1796 pc:37 ar:41 acc:2003 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1801 pc:38 ar:37 acc:2004 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2003'}
+  DEBUG    root:machine.py:577 tick:1805 pc:39 ar:41 acc:2004 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1808 pc:32 ar:41 acc:2004 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2004'}
+  DEBUG    root:machine.py:577 tick:1813 pc:33 ar:2004 acc:108 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1818 pc:34 ar:38 acc:108 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1822 pc:35 ar:38 acc:108 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: l
+  DEBUG    root:machine.py:577 tick:1827 pc:36 ar:1 acc:108 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2004'}
+  DEBUG    root:machine.py:577 tick:1831 pc:37 ar:41 acc:2004 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1836 pc:38 ar:37 acc:2005 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2004'}
+  DEBUG    root:machine.py:577 tick:1840 pc:39 ar:41 acc:2005 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1843 pc:32 ar:41 acc:2005 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2005'}
+  DEBUG    root:machine.py:577 tick:1848 pc:33 ar:2005 acc:107 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1853 pc:34 ar:38 acc:107 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1857 pc:35 ar:38 acc:107 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: k
+  DEBUG    root:machine.py:577 tick:1862 pc:36 ar:1 acc:107 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2005'}
+  DEBUG    root:machine.py:577 tick:1866 pc:37 ar:41 acc:2005 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1871 pc:38 ar:37 acc:2006 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2005'}
+  DEBUG    root:machine.py:577 tick:1875 pc:39 ar:41 acc:2006 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1878 pc:32 ar:41 acc:2006 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2006'}
+  DEBUG    root:machine.py:577 tick:1883 pc:33 ar:2006 acc:111 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1888 pc:34 ar:38 acc:111 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1892 pc:35 ar:38 acc:111 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: o
+  DEBUG    root:machine.py:577 tick:1897 pc:36 ar:1 acc:111 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2006'}
+  DEBUG    root:machine.py:577 tick:1901 pc:37 ar:41 acc:2006 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1906 pc:38 ar:37 acc:2007 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2006'}
+  DEBUG    root:machine.py:577 tick:1910 pc:39 ar:41 acc:2007 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1913 pc:32 ar:41 acc:2007 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2007'}
+  DEBUG    root:machine.py:577 tick:1918 pc:33 ar:2007 acc:118 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1923 pc:34 ar:38 acc:118 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1927 pc:35 ar:38 acc:118 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: v
+  DEBUG    root:machine.py:577 tick:1932 pc:36 ar:1 acc:118 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2007'}
+  DEBUG    root:machine.py:577 tick:1936 pc:37 ar:41 acc:2007 ei:False interrupt:False 	Opcode:add Arg:37 Mem[arg]:{'name': 'one', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1941 pc:38 ar:37 acc:2008 ei:False interrupt:False 	Opcode:store Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2007'}
+  DEBUG    root:machine.py:577 tick:1945 pc:39 ar:41 acc:2008 ei:False interrupt:False 	Opcode:jmp Arg:32 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1948 pc:32 ar:41 acc:2008 ei:False interrupt:False 	Opcode:load Arg:41 Mem[arg]:{'name': 'add operation res', 'type': <DataType.num: 'num'>, 'val': '2008'}
+  DEBUG    root:machine.py:577 tick:1953 pc:33 ar:2008 acc:0 ei:False interrupt:False 	Opcode:cmp Arg:38 Mem[arg]:{'name': 'nul', 'type': <DataType.char: 'char'>, 'val': 0, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1958 pc:34 ar:38 acc:0 ei:False interrupt:False 	Opcode:jz Arg:40 Mem[arg]:null
+  DEBUG    root:machine.py:577 tick:1962 pc:40 ar:38 acc:0 ei:False interrupt:False 	Opcode:load Arg:35 Mem[arg]:{'name': 'mark', 'type': <DataType.char: 'char'>, 'val': 33, 'l2l': False}
+  DEBUG    root:machine.py:577 tick:1966 pc:41 ar:35 acc:33 ei:False interrupt:False 	Opcode:store Arg:40 Mem[arg]:{'name': 'out_d', 'type': <DataType.num: 'num'>, 'val': '1', 'l2l': False}
+  DEBUG    root:machine.py:69 CHAR_OUT: !
+  DEBUG    root:machine.py:577 tick:1971 pc:42 ar:1 acc:33 ei:False interrupt:False 	Opcode:hlt Arg:null Mem[arg]:null
+  DEBUG    root:machine.py:584 Simulation stopted by HLT command Total ticks: 1973

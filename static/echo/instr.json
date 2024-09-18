@@ -1,0 +1,77 @@
+[
+    {
+        "opcode": "di",
+        "arg": "None",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "3",
+        "address_type": false
+    },
+    {
+        "opcode": "ei",
+        "arg": "None",
+        "address_type": false
+    },
+    {
+        "opcode": "di",
+        "arg": "None",
+        "address_type": false
+    },
+    {
+        "opcode": "cmp",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "jnz",
+        "arg": "2",
+        "address_type": false
+    },
+    {
+        "opcode": "load",
+        "arg": "0",
+        "address_type": true
+    },
+    {
+        "opcode": "cmp",
+        "arg": "1",
+        "address_type": false
+    },
+    {
+        "opcode": "jz",
+        "arg": "14",
+        "address_type": false
+    },
+    {
+        "opcode": "store",
+        "arg": "2",
+        "address_type": true
+    },
+    {
+        "opcode": "load",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "add",
+        "arg": "3",
+        "address_type": false
+    },
+    {
+        "opcode": "store",
+        "arg": "0",
+        "address_type": false
+    },
+    {
+        "opcode": "jmp",
+        "arg": "6",
+        "address_type": false
+    },
+    {
+        "opcode": "hlt",
+        "arg": "None",
+        "address_type": false
+    }
+]

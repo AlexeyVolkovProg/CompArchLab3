@@ -1,0 +1,20 @@
+[
+    {
+        "name": "in_d",
+        "type": "num",
+        "val": "0",
+        "l2l": false
+    },
+    {
+        "name": "buf_address",
+        "type": "num",
+        "val": "1998",
+        "l2l": false
+    },
+    {
+        "name": "one",
+        "type": "num",
+        "val": "1",
+        "l2l": false
+    }
+]
