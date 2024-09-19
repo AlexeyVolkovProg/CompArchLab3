@@ -14,7 +14,7 @@
     {
         "name": "right_boarder",
         "type": "num",
-        "val": "1001",
+        "val": "1000",
         "l2l": false
     },
     {

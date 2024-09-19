@@ -1,6 +1,10 @@
 import json
 from enum import Enum
 
+"""
+Модуль ISA расшифровывается как Instruction Set Architecture (Архитектура набора команд).
+"""
+
 
 class Opcode(str, Enum):
     load = "load"  # Команда загрузки данных
